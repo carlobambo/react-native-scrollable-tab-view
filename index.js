@@ -97,7 +97,10 @@ const ScrollableTabView = React.createClass({
     if (this.scrollView && this.scrollView._component && this.scrollView._component.scrollTo) {
       this.scrollView._component.scrollTo({x: offset, y: 0, animated, });
     }
-
+    
+    const scrollValue = offset / this.state.containerWidth;
+    this.state.scrollValue.setValue(scrollValue);
+    
     const currentPage = this.state.currentPage;
     this.updateSceneKeys({
       page: pageNumber,
